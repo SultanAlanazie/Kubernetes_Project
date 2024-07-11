@@ -16,8 +16,6 @@ spec:
       - name: wordpress
         image: wordpress:latest
         env:
-        - name: WORDPRESS_DB_HOST
-          value: mysql-service
         - name: WORDPRESS_DB_NAME
           value: wordpress
         - name: WORDPRESS_DB_USER
