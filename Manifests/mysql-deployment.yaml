@@ -49,7 +49,8 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: mysql-pv-claim
+  name: wp-pv-claim
+  namespace: sultan-namespace
   labels:
     app: wordpress
 spec:
