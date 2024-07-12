@@ -20,7 +20,6 @@ metadata:
     app: mysql
 spec:
   replicas: 1
-  serviceName: mysql
   selector:
     matchLabels:
       app: mysql
@@ -36,16 +35,17 @@ spec:
           - "--ignore-db-dir=lost+found"
         envFrom:
         - secretRef:
-          name: mysql-secret
+            name: mysql-secret
         ports:
         - containerPort: 3306
         volumeMounts:
         - name: mysql-persistent-storage
           mountPath: /var/lib/mysql
       volumes:
-          - name: mysql-persistent-storage
-            persistentVolumeClaim:
-              claimName: mysql-pv-claim
+      - name: mysql-persistent-storage
+        persistentVolumeClaim:
+          claimName: mysql-pv-claim
+
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
